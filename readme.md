@@ -1,32 +1,24 @@
-Auto Download Organizer
+# Auto Download Organizer
 
-A lightweight, real-time Python background automation script for Windows that monitors your Downloads directory and automatically organizes incoming files into categorized folders based on their file extensions.
+A lightweight, robust, and real-time Python background automation script that monitors your Downloads directory and automatically organizes incoming files into categorized folders based on their extensions.
 
-Features:
-Real-time monitoring of the Windows Downloads folder
-Event-driven file organization using watchdog
-Automatic categorization by file extension
-Avoids interfering with incomplete downloads
-Ignores hidden files and directories
-Automatic duplicate filename handling
-Short delay before moving files to avoid Windows file-lock issues
-Can run automatically in the background when Windows starts
+## Features
 
-Installation
-1. Clone the Repository
-Open Command Prompt or PowerShell and run:
+- **Real-Time Monitoring:** Uses `watchdog` to catch file creations, modifications, and renames (such as Chrome finalizing `.crdownload` files or Safari's `.download` files).
+- **Smart File-Lock Protection:** Instead of arbitrary timers, it actively monitors file size stability and verifies OS access permissions to ensure downloads are fully completed before moving them.
+- **Startup Cleanup:** Automatically scans and organizes any existing unorganized files sitting in your Downloads folder when the script first launches.
+- **Automatic Categorization:** Neatly sorts files into designated folders: *Images, Documents, Archives, Installers, Code, Media, and Other*.
+- **Duplicate Prevention:** Safely handles filename collisions by automatically appending counters (e.g., `report_1.pdf`) instead of overwriting existing files.
+- **Advanced Filtering:** Automatically ignores hidden files, directories, and temporary download parts (`.tmp`, `.part`, etc.).
+- **Professional Logging:** Uses Python's built-in `logging` module to output clean, timestamped activity logs.
 
-git clone https://github.com/roniikaa1/auto-download-organizer.git
+---
+
+## Installation & Usage
+
+### 1. Clone the Repository
+Open Command Prompt, PowerShell, or Terminal and run:
+
+```bash
+git clone [https://github.com/roniikaa1/auto-download-organizer.git](https://github.com/roniikaa1/auto-download-organizer.git)
 cd auto-download-organizer
-
-2. Install the Dependency
-
-Install watchdog using pip:
-pip install watchdog
-
-3. Run the Script
-
-Start the organizer manually:
-python organizer.py
-
-
